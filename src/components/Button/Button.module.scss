@@ -33,11 +33,11 @@
 
   // отспупы
   --pad: var(--button-padding, 0.5em 1em);
-  --pad-big: var(--button-padding-big, 1em 2em);
+  //   --pad-big: var(--button-padding-big, 1em 2em);
 
   // закругления
   --br: var(--button-border-radius, 0.5em);
-  --br-big: var(--button-border-radius-big, 1em);
+  //   --br-big: var(--button-border-radius-big, 1em);
 
   @include padding_border(var(--pad), var(--br));
 
