@@ -6,42 +6,41 @@ function App() {
   return (
     <>
       <h1>Библиотека компонентов</h1>
+
       <div className="buttons">
         <h2>Кнопки</h2>
         <div>
-          <h3>Варианты исполнения</h3>
+          <h3>Цвета</h3>
           <div className="button-block">
             <Button>Primary</Button>
-            <Button outline>Primary outline</Button>
-          </div>
-        </div>
-        <div>
-          <h3>Отсупы</h3>
-          <div className="button-block">
-            <Button>Primary</Button>
-            <Button bigPadding>Big padding</Button>
-          </div>
-        </div>
-        <div>
-          <h3>События на кнопку через пропс onClick</h3>
-          <div className="button-block">
-            <Button onClick={() => alert("click")}>Primary</Button>
-          </div>
-        </div>
-        <div>
-          <h3>Отключенная кнопка</h3>
-          <div className="button-block">
-            <Button>Working Button</Button>
-            <Button disabled onClick={() => alert(123)}>
-              Disabled Button
+            <Button secondary>Secondary</Button>
+            <Button danger>Danger</Button>
+            <Button outline>Primary</Button>
+            <Button outline secondary>
+              Secondary
+            </Button>
+            <Button outline danger>
+              Danger
             </Button>
           </div>
         </div>
         <div>
-          <h3>Темный цвет текста и фона при наведении</h3>
+          <h3>Размеры</h3>
           <div className="button-block">
-            <Button>Light</Button>
-            <Button dark>Dark</Button>
+            <span style={{ fontSize: ".5rem" }}>
+              <Button>Small</Button>
+            </span>
+            <Button>Default</Button>
+            <span style={{ fontSize: "2rem" }}>
+              <Button>Big</Button>
+            </span>
+          </div>
+        </div>
+        <div>
+          <h3>Активность кнопки и события на кнопку</h3>
+          <div className="button-block">
+            <Button onClick={() => alert("active")}>Active</Button>
+            <Button disabled>Disabled</Button>
           </div>
         </div>
       </div>

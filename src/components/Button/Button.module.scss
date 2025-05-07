@@ -1,68 +1,62 @@
-// primary
-.button {
-  padding: var(--button-padding);
-  border-radius: var(--button-border-radius);
+@mixin padding_border($padding, $border) {
+  padding: $padding;
+  border-radius: $border;
+}
 
-  border: 1px solid var(--color-primary);
-  background-color: var(--color-primary);
-  color: var(--color-light);
-
-  transition: all 0.2s;
-  cursor: pointer;
+@mixin colors($bg-color, $color, $border-color) {
+  background-color: $bg-color;
+  color: $color;
+  border: 1px solid $border-color;
 
   &:hover {
-    background-color: var(--color-light);
-    color: var(--color-primary);
+    background-color: $color;
+    color: $bg-color;
   }
 
   &:active {
-    background-color: color-mix(in srgb, var(--color-light), black 10%);
+    background-color: color-mix(in srgb, $color, black 5%);
   }
+}
+
+.button {
+  // главные цвета
+  --c-light: var(--color-light, #fafafa);
+  --c-dark: var(--color-dark, #333);
+
+  // варианты цветов
+  --c-primary: var(--color-primary, #5d76cb);
+  --c-secondary: var(--color-secondary, #333);
+  --c-danger: var(--color-danger, #cd3636);
+
+  // отключенная кнопка
+  --c-disabled: var(--color-disabled, #666);
+
+  // отспупы
+  --pad: var(--button-padding, 0.5em 1em);
+  --pad-big: var(--button-padding-big, 1em 2em);
+
+  // закругления
+  --br: var(--button-border-radius, 0.5em);
+  --br-big: var(--button-border-radius-big, 1em);
+
+  @include padding_border(var(--pad), var(--br));
+
+  @include colors(var(--bg-color), var(--color), var(--border-color));
+
+  font-size: inherit;
+  transition: all 0.2s;
+  cursor: pointer;
 
   // отключенная кнопка
   &:disabled {
     cursor: not-allowed;
-    background-color: var(--color-disabled);
-    border-color: var(--color-disabled);
+    background-color: var(--c-disabled);
+    border-color: var(--c-disabled);
 
     &:hover,
     &:active {
-      color: var(--color-light);
-      background-color: var(--color-disabled);
+      color: var(--c-light);
+      background-color: var(--c-disabled);
     }
-  }
-}
-
-// outline
-.outline {
-  background-color: var(--color-light);
-  color: var(--color-primary);
-
-  &:hover {
-    background-color: var(--color-primary);
-    color: var(--color-light);
-  }
-
-  &:active {
-    background-color: color-mix(in srgb, var(--color-primary), black 10%);
-  }
-}
-
-.bigPadding {
-  padding: var(--button-padding-big);
-  border-radius: var(--button-border-radius-big);
-}
-
-// темный текст
-.dark {
-  color: var(--color-dark);
-
-  &:hover {
-    background-color: var(--color-dark);
-    border-color: var(--color-dark);
-  }
-
-  &:active {
-    background-color: color-mix(in srgb, var(--color-dark), black 10%);
   }
 }
